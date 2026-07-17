@@ -9,7 +9,7 @@ Cline (Alice) is running deepseek-v4-pro:cloud on ollama pro subscription.
 Her tasks include coding and all system administration (using .clinerules populated with _clinerules_code.txt)
 He can also be used for technical chat (using .clinerules populated with _clinerules_chat.txt)
 
-X-17 with 34" QoLED monitior
+X-17 viewed on an Alienware 32 4K QD-OLED
 32GB RAM and a 3080Ti 16GB DDR6
 Using VS-Code SSH into Server using Cline (Alice) extention.
 Running kokoro text to speech for Alice's responses (script uses  ctl+alt+s to inject clipboard into kokoro for speech synthesis).
