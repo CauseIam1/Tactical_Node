@@ -87,7 +87,7 @@ Architecting the interactive layer of these 3D tables.
 **4. The "Living Organism" Pulse (Algorithmic Shaders)**
  * **The Mechanic:** Rather than static models, the geometry must be driven by custom GLSL shaders tied to backend metrics.
  * **The Experience:** The ecosystem will literally breathe. If market volatility spikes or the bot's transaction per minute (TPM) increases, the glowing ion trails move faster and the central core's pulsing animation accelerates. I will be able to gauge the health and speed of my automated economy just by looking at the rhythm of the table.
-This transforms the page from a static reporting tool into a fully interactive, living tactical map that utilizes every ounce of power my Q-OLED and 3080 Ti can push.
+This transforms the page from a static reporting tool into a fully interactive, living tactical map that utilizes my Alienware 32 4K QD-OLED and X-17's 3080Ti.
 Since XRP is our baseline bedrock and we measure the "global displacement mass" purely in xrp_equivalent, the visual size of our ecosystem should be driven by the actual, mathematical weight of the assets, not a hardcoded ratio.
 ### 🎨 Unified Architecture, Distinct Atmospheres (The Color Separation)
 To ensure maximum component reusability without sacrificing situational awareness, Cline must build a single, modular Node3D and 3DCanvas component that accepts a theme prop. The core "action" states (Green for Expanding, Orange for Compression) remain universal so the operator's muscle memory is preserved. However, the ambient environment, idle nodes, and threshold force fields must strictly adhere to the following color palettes to instantly identify the active module:
