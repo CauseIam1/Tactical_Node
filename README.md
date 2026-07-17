@@ -27,7 +27,7 @@ Capital and execution logic are cryptographically partitioned into three isolate
  * **Function:3** Executes rapid, multi-hop mesh network arbitrage to capture micro-inefficiencies and generate passive yield.
  * **Constraint:** Strictly rules-based execution governed by liquidity guardrails; operates with a hard-capped capital allocation to prevent broader portfolio exposure.
 
-### C. The Trading Wallet (Manual Macro-Swaps)
+### C. The Trading Wallet (Manual Asset to Asset Swaps)
  * **Role:** Operator's high-density command portal for active momentum trading.
  * **Function:** Executes cumulative pile "flip-flops" across across our asset pools via Human-In-The-Loop using Xaman.
  * **Constraint:** Utilizes secure Xaman SDK push-to-sign payloads; private keys are never exposed to the server.
