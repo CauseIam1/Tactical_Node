@@ -31,12 +31,6 @@ When she detects that the operator has vacated the bridge zone, she initiates a 
 She is a purely local-only sentinel with zero custody or access to keys or code.
 She has learning behavior and saves locally to (behavior_lib.json).
 
-RedMagic 9 Pro with 16GB RAM (only device on wifi, all others are hard wired LAN)
-Primarily used for co-manager meetings with Gemini about concepts and stetegic plans of implementation.
-The entire system and it's Architecture were co-designed/managed by Gemini and myself.
-The Holodeck and 3D pages look amazing but text is too small for my optic sensors.
-We started with a bare 7910 and mapped out it's hardware/software flow on June 1, 2026
-We've revamped every aspect of this project 4 times over to achieve it's current state.
 
 
 
