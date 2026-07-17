@@ -80,13 +80,13 @@ Architecting the interactive layer of these 3D tables.
  We will need to restrict the vertical camera angle slightly so it always feels like I'm looking down into a tactical table rather than getting lost in empty 3D space.
 **2. Proximity-Based Data Revelation (Level of Detail)**
  * **The Mechanic:** We will use camera distance tracking combined with 3D HTML overlays.
- * **The Experience:** When I'm zoomed out, the HUD only displays macro-level health—total ecosystem value, the 80/20 balance, and the heartbeat of the bot. As you zoom in on a specific structure (like the rotational rings), the macro data fades out and micro-data fades in, revealing localized wallet balances, specific token accumulations, and real-time AMM pool depths.
+ * **The Experience:** When I'm zoomed out, the HUD only displays macro-level health—total ecosystem value, the 80/20 balance, and the heartbeat of the bot. As I zoom in on a specific structure (like the rotational rings), the macro data fades out and micro-data fades in, revealing localized wallet balances, specific token accumulations, and real-time AMM pool depths.
 **3. Raycasting and "Point of Interest" Dives**
  * **The Mechanic:** Set up a Raycaster to detect mouse hovers and clicks on specific 3D geometries, tied to an animation engine like GSAP.
  * **The Experience:** If I see a cluster of high activity in the trading rings and click on it, the camera will automatically break its manual orbit, smoothly sweep down, and lock onto that specific node. The node will expand, throwing up a detailed holographic UI panel detailing exactly what the bot is executing in that moment.
 **4. The "Living Organism" Pulse (Algorithmic Shaders)**
  * **The Mechanic:** Rather than static models, the geometry must be driven by custom GLSL shaders tied to backend metrics.
- * **The Experience:** The ecosystem will literally breathe. If market volatility spikes or the bot's transaction per minute (TPM) increases, the glowing ion trails move faster and the central core's pulsing animation accelerates. I will be able to gauge the health and speed of your automated economy just by looking at the rhythm of the table.
+ * **The Experience:** The ecosystem will literally breathe. If market volatility spikes or the bot's transaction per minute (TPM) increases, the glowing ion trails move faster and the central core's pulsing animation accelerates. I will be able to gauge the health and speed of my automated economy just by looking at the rhythm of the table.
 This transforms the page from a static reporting tool into a fully interactive, living tactical map that utilizes every ounce of power my Q-OLED and 3080 Ti can push.
 Since XRP is our baseline bedrock and we measure the "global displacement mass" purely in xrp_equivalent, the visual size of our ecosystem should be driven by the actual, mathematical weight of the assets, not a hardcoded ratio.
 ### 🎨 Unified Architecture, Distinct Atmospheres (The Color Separation)
@@ -192,7 +192,7 @@ Please move all other tables etc, into compact tables that when clicked on, they
 #### Matrix Page
 ### The Reality of the 80/20 Split (Backend vs. Frontend)
 **1. The Backend Reality (The Safety Lock)**
-In the Java engine, the 80/20 split is an "ironclad structural partition". The constant ROTATIONAL_CAPITAL_ALLOCATION = 0.20 exists purely as a risk management guardrail. It physically prevents the Matrix Rotator from risking more than 20% of your available capital on a single flip. It is a ceiling, not a literal representation of where your funds currently sit.
+In the Java engine, the 80/20 split is an "ironclad structural partition". The constant ROTATIONAL_CAPITAL_ALLOCATION = 0.20 exists purely as a risk management guardrail. It physically prevents the Matrix Rotator from risking more than 20% of my available capital on a single flip. It is a ceiling, not a literal representation of where my funds currently sit.
 **2. The Frontend Reality (Proper proportions)**
 If my Cold Wallet holds 9,000 XRP and my Trading Wallet holds 1,000 XRP, the visual "mass" of the ecosystem should be 90/10, everything should just be proportionally correct based on the raw XRP valuation.
 ### 🛰️ Updated Directive for Alice: True-Mass Proportional Scaling
@@ -204,7 +204,7 @@ If my Cold Wallet holds 9,000 XRP and my Trading Wallet holds 1,000 XRP, the vis
  * **The Trading Wallet (Orbital Rings):** Its thickness and density are strictly determined by the trading_wallet_xrp and trading_bot_xrp values.
 **3. Visualizing the Guardrail (The Redline)**
  * **The Mechanic:** Since the backend still enforces that 20% limit on active trading, we should visualize the *rule* without distorting the *mass*.
- * **The Execution:** Draw a holographic "Redline" or bounding sphere around the orbital rings. This represents the maximum 20% allocation capacity. If the active trading mass starts pushing up against that boundary, it glows red, letting you know the bot is maximizing its allowed capital exposure.
+ * **The Execution:** Draw a holographic "Redline" or bounding sphere around the orbital rings. This represents the maximum 20% allocation capacity. If the active trading mass starts pushing up against that boundary, it glows red, letting me know the bot is maximizing its allowed capital exposure.
 By doing this, the 3D organism will literally reflect the true weight of my XRP pile, while still visually honoring the engine's safety limits.
 #### Phases of Implementation
 ### 📋 Phase 1: The Data & Logical Foundation
