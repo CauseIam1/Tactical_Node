@@ -80,7 +80,7 @@ Architecting the interactive layer of these 3D tables.
  We will need to restrict the vertical camera angle slightly so it always feels like I'm looking down into a tactical table rather than getting lost in empty 3D space.
 **2. Proximity-Based Data Revelation (Level of Detail)**
  * **The Mechanic:** We will use camera distance tracking combined with 3D HTML overlays.
- * **The Experience:** When I'm zoomed out, the HUD only displays macro-level health—total ecosystem value, the 80/20 balance, and the heartbeat of the bot. As I zoom in on a specific structure (like the rotational rings), the macro data fades out and micro-data fades in, revealing localized wallet balances, specific token accumulations, and real-time AMM pool depths.
+ * **The Experience:** When I'm zoomed out, the HUD only displays macro-level health—total ecosystem value, the 80/20 balance, and the heartbeat of the bot. As I zoom in on a specific structure (like the rotational rings), the macro data fades out and micro-data fades in, revealing localized wallet balances, specific asset accumulations, and real-time AMM pool depths.
 **3. Raycasting and "Point of Interest" Dives**
  * **The Mechanic:** Set up a Raycaster to detect mouse hovers and clicks on specific 3D geometries, tied to an animation engine like GSAP.
  * **The Experience:** If I see a cluster of high activity in the trading rings and click on it, the camera will automatically break its manual orbit, smoothly sweep down, and lock onto that specific node. The node will expand, throwing up a detailed holographic UI panel detailing exactly what the bot is executing in that moment.
@@ -98,12 +98,12 @@ To ensure maximum component reusability without sacrificing situational awarenes
 
 ### Radar Page
 #### 1. Objective & Core Paradigm
-The Radar Page tracks **token-to-token relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices. 
+The Radar Page tracks **asset-to-asset relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices. 
 All operations are strictly asset-to-asset, leveraging the XRPL AMM pools, using XRP solely as a background normalization anchor to maintain precise structural proportions across the visual coordinate grid.
 #### 2. Data Integration & State Mapping
 The frontend serves as an interactive visualization layer ("dumb glass") that hooks directly into the trading bot's dynamic 60-ledger window ratio tracking streams. The bot's internal status outputs are mapped directly to four distinct visual states:
 * **Outside watch zone (each asset is a different color):** Exchange rate is not high enough to enter our HOT zone (when it enters inside sliding threshold window, it enters actively being watched and changes to expanding). Returning to it's color if it falls back outside the HOT zone.
-* **Expanding (Vibrant Green Blip):** Exchange rate is actively widening in favor of a swap advantage; accumulating unrealized token volume potential.
+* **Expanding (Vibrant Green Blip):** Exchange rate is actively widening in favor of a swap advantage; accumulating unrealized asset volume potential.
 * **Apex (Flashing White / Cyan):** Exchange rate expansion has flattened at its local maximum over the rolling 60 ledgers. Maximum swap yield is active.
 * **Compression (Warning Orange Flashing):** Ratio prints its first confirmed down-tick from the peak. The manual reverse swap window is open.
 > **System Color Code Override:** Any node currently undergoing a manual override, custom tracking adjustment, or tactical staging sequence will bypass standard state coloration and glow **Tactical Magenta**.
@@ -119,7 +119,7 @@ Trade confirmation occurs exclusively via Xaman payloads pushed directly to the 
 #### 5. Chained 2-Step Resurrection Console
 Dormant nodes resting on the outer bedrock floor can be manually selected to open a dedicated Diagnostics Sidebar. Igniting a dead asset pair executes a hard-coded two-step transaction sequence:
  1. **Step 1: The Feedback Spark (0.1 XRP Payment):** Triggering the reset fires a 0.1 XRP payment payload in the losing direction to force a clean engine tracking reset. Upon signature confirmation, the node turns **XRP Blue** and snaps into a temporary "Staging Ring" orbit.
- 2. **Step 2: The Asset Ignition Swap:** The frontend automatically intercepts the Step 1 success webhook and pushes Payload 2 (the actual on-chain asset-to-asset flip) to the phone, automatically calculating the exact token volumes needed to match the user's entered `[ Ignition Capital (XRP Equivalent) ]` input field.
+ 2. **Step 2: The Asset Ignition Swap:** The frontend automatically intercepts the Step 1 success webhook and pushes Payload 2 (the actual on-chain asset-to-asset flip) to the phone, automatically calculating the exact asset volumes needed to match the user's entered `[ Ignition Capital (XRP Equivalent) ]` input field.
  3. **The Deployment:** Once Payload 2 clears the ledger, the node drops directly into the Staging Zone just outside the active perimeter line and begins its live expansion tracking cycle.
 #### 6. Threshold sliding scale
 The sliding scale (only controls threshold for manual swaps not the trading bot swaps) should be shown visually like a movable force field that controls the HOT zone. Show as a **Tactical Purple force field**.
@@ -133,11 +133,11 @@ The Bot page combines both the radar (like the manual radar) and the bioluminesc
 Since, the nodes for both sections, are the same nodes, let's combine visuals of all the trading bots actions.
 Clicking on a node should show the same info as the Radar page as to where the swap sits for that node or info if it's not a swap.
 #### 1. Bot-Radar
-The Bot-Radar tracks **token-to-token relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices. All operations are strictly asset-to-asset, leveraging the XRPL AMM pools, using XRP solely as a background normalization anchor to maintain precise structural proportions across the visual coordinate grid.
+The Bot-Radar tracks **asset-to-asset relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices. All operations are strictly asset-to-asset, leveraging the XRPL AMM pools, using XRP solely as a background normalization anchor to maintain precise structural proportions across the visual coordinate grid.
 #### 2. Data Integration & State Mapping
 The frontend serves as an interactive visualization layer ("dumb glass") that hooks directly into the trading bot's dynamic 60-ledger window ratio tracking streams. The bot's internal status outputs are mapped directly to four distinct visual states:
 * **Outside watch zone (each asset is a different color):** Exchange rate is not high enough to enter our HOT zone (when it enters inside sliding threshold window, it enters actively being watched and changes to expanding). Returning to it's color if it falls back outside the HOT zone.
-* **Expanding (Vibrant Green Blip):** Exchange rate is actively widening in favor of a swap advantage; accumulating unrealized token volume potential.
+* **Expanding (Vibrant Green Blip):** Exchange rate is actively widening in favor of a swap advantage; accumulating unrealized asset volume potential.
 * **Apex (Flashing White / Cyan):** Exchange rate expansion has flattened at its local maximum over the rolling 60 ledgers. Maximum swap yield is active.
 * **Compression (Warning Orange Flashing):** Ratio prints its first confirmed down-tick from the peak. The Bot should trigger the transaction and the node should return to it's normal position as the swap has been reset into the other direction.
 #### 3. Topography & Living Micro-Physics (3D view anchored in the center)
