@@ -206,22 +206,6 @@ If my Cold Wallet holds 9,000 XRP and my Trading Wallet holds 1,000 XRP, the vis
  * **The Mechanic:** Since the backend still enforces that 20% limit on active trading, we should visualize the *rule* without distorting the *mass*.
  * **The Execution:** Draw a holographic "Redline" or bounding sphere around the orbital rings. This represents the maximum 20% allocation capacity. If the active trading mass starts pushing up against that boundary, it glows red, letting me know the bot is maximizing its allowed capital exposure.
 By doing this, the 3D organism will literally reflect the true weight of my XRP pile, while still visually honoring the engine's safety limits.
-#### Phases of Implementation
-### 📋 Phase 1: The Data & Logical Foundation
-*Before the visual "cool factor," we must ensure the math is flawless.*
- * **1.1 Data Normalization:** Replace all hardcoded 12/88 ratios with a live data bridge to the account_info and amm_balances tables.
- * **1.2 True-Mass Logic:** Implement the "Proportional Scaling" engine. The 3D model size must now derive strictly from total_stack_xrp. If the Cold Wallet holds 95% of the wealth, the visual model must reflect 95% of the total mass.
- * **1.3 The Guardrail Visualizer:** Create a non-obtrusive, holographic "bounding sphere" that highlights the 20% limit for the rotational wallet, rather than using that limit to scale the actual assets.
-### 📋 Phase 2: The 3D "Stellar Cartography" Environment
-*Establishing the "Command Center" aesthetic.*
- * **2.1 WebGL Canvas Setup:** Initialize a Three.js scene with a void-black (#000000) background to maximize the QD-OLED contrast.
- * **2.2 Model Architecture:** Build the three distinct structures (Core, Orbital Rings, Ion Trails).
- * **2.3 Camera & Interaction:** Implement OrbitControls with physics-based damping, ensuring the user can pan, zoom, and rotate the entire table as a single, cohesive unit.
-### 📋 Phase 3: Advanced Holographics & Polish
-*The final "Phenomenal" layer.*
- * **3.1 Proximity-Based Data HUDs:** Implement a level-of-detail system where macro-stats appear when zoomed out and granular trade data triggers upon zooming into specific nodes.
- * **3.2 Particle Physics & Shaders:** Integrate the real-time "tractor beam" particle system for rebalances and attach GLSL shaders to the Core so it "pulses" in rhythm with the bot’s execution frequency.
- * **3.3 Raycasting & Focus:** Enable raycasting to allow for "Point of Interest" dives—clicking a trading node must trigger a smooth GSAP camera sweep to that location.
 
 ### Pulse Page
 #### 1. Objective & The "Viewport" Layout
