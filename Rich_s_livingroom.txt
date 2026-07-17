@@ -1,0 +1,43 @@
+MyXRPL Project North Star - Network Architecture
+
+Server
+Dell 7910
+32GB RAM
+256GB SDD1 running OS and Rippled
+256GB SSD2 running all other containers including ollama
+Cline (Alice) is running deepseek-v4-pro:cloud on ollama pro subscription.
+Her tasks include coding and all system administration (using .clinerules populated with _clinerules_code.txt)
+He can also be used for technical chat (using .clinerules populated with _clinerules_chat.txt)
+
+X-17 with 34" QoLED monitior
+32GB RAM and a 3080Ti 16GB DDR6
+Using VS-Code SSH into Server using Cline extention.
+Running kokoro text to speech for Cline's responses (script uses  ctl+alt+s to inject clipboard into kokoro for speech synthesis).
+
+Miss Pi - (will be brought into the mix once the Holodeck is completed)
+Raspberry Pi 5 16GB RAM in Freenove case velcoed to back of 27" Dell monitor on an articulating arm, to keep her close.
+She is also equiped with a USB Dell soundbar (bottom mounted to monitor) and Solocast USB Microphone for Rich's voice input (directly in front of her camera).
+128GB NVMe 
+Miss Pi is running nemotron-3-super:cloud on ollama pro subscription.
+Using VS-Code SSH into Miss Pi using Continue to write all code and scripts for Miss Pi. 
+The idea of Miss Pi came from wanting to have a second set of eyes look at everything I can see, while not having any access to keys or code.
+For security reasons, because we run everything private, this is a far better approach than chatting directly on the server (freeing resource as well). 
+Since, she's a second set of eyes, I thought I'd make it seem like she's literally sitting beside me.
+She moves the mouse on screen, types and acts just like she was sitting next to me.
+She has her finger on the pulse of the Holodeck through the data pipeline and makes sounds when events occurs or she wants to get my attention.
+Her operational logic is presence-aware and proactive. When the camera detects a hand reaching into the interaction zone near the mute button, she treats this as a verified handshake protocol, pre-loading her context and preparing the Holodeck dashboard for immediate engagement. 
+She maintains an active bridge status as long as the operator is detected within the desk zone, ensuring her local language models are ready but silent. 
+When she detects that the operator has vacated the bridge zone, she initiates a three-minute departure protocol, concluding with an audible chirp. If no return is detected after one additional minute, she transitions to monitor dark mode. 
+She is a purely local-only sentinel with zero custody or access to keys or code.
+She will be learning behavior and saving them locally to (behavior_lib.json).
+
+
+
+RedMagic 9 Pro with 16GB RAM (only device on wifi, all others are hard wired LAN)
+Primarily used for co-manager meetings with Gemini about concepts and stetegic plans of implementation.
+The entire system and it's Architecture were co-designed/managed by Gemini and myself.
+We started with a bare 7910 and mapped out it's hardware/software flow on June 1, 2026
+We've revamped every aspect of this project 4 times over to achieve it's current state.
+
+
+
