@@ -29,7 +29,7 @@ Her operational logic is presence-aware and proactive. When the camera detects a
 She maintains an active bridge status as long as the operator is detected within the desk zone, ensuring her local language models are ready but silent. 
 When she detects that the operator has vacated the bridge zone, she initiates a three-minute departure protocol, concluding with an audible chirp. If no return is detected after one additional minute, she transitions to monitor dark mode. 
 She is a purely local-only sentinel with zero custody or access to keys or code.
-She will be learning behavior and saving them locally to (behavior_lib.json).
+She has learning behavior and saves locally to (behavior_lib.json).
 
 RedMagic 9 Pro with 16GB RAM (only device on wifi, all others are hard wired LAN)
 Primarily used for co-manager meetings with Gemini about concepts and stetegic plans of implementation.
