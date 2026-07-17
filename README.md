@@ -145,7 +145,7 @@ The frontend serves as an interactive visualization layer ("dumb glass") that ho
  * **Radial Distance Calculation:** An asset pair's distance from the center (radius) is determined by its current ratio divergence. Positive divergence pulls the blip inward toward the actionable core; negative divergence drifts it outward.
  * **Living Node Shaders (Vibrations):** Pairs experiencing rapid ratio expansion execute a high-frequency micro-vibration/shake effect to attract immediate tactical focus.
 #### 4. Threshold sliding scale
-The sliding scale (only controls threshold for bot swaps not the manual swaps) should be shown visually like a movable force field that controls the HOT zone. Show as a **Cyan force field**.
+The sliding scale (only controls threshold for bot asset swaps not the manual swaps) should be shown visually like a movable force field that controls the HOT zone. Show as a **Cyan force field**.
 Nodes within the HOT zone means it meets profit threshold (it's inside the force field).
 The force field should be transparent and we clearly see the nodes change from their normal color, to green as they enter the HOT zone.
 #### The Bioluminescent Pond
@@ -183,8 +183,8 @@ Clicking on a faded red Ghost Path smoothly expands a tactile, holographic contr
  * **Minute 0:45 (The Dissipation):** The trail drifts slightly with the ambient current, breaking apart into 20% opacity.
  * **Minute 1:00 (The Purge):** The remaining particles completely evaporate, returning the environment to its breathing, bioluminescent state.
  * **The Micro-Metrics HUD:** Hovering over an ember trail during this 1-minute window expands a sleek holographic tooltip with two simple visual gauges: **The Latency Gap** (milliseconds lost by) and **The Volume Bloat** (size of the missed trade).
-#### 8. Threshold sliding scale for "splash in pond" (based on rapid asset price % increase)
-The sliding scale (only controls threshold of rapid increase) should be shown visually like a movable force field that controls the HOT zone. Show as a **Emerald force field**.
+#### 8. Threshold sliding scale for "splash in pond" (The Slippage Calibration Dial)
+The sliding scale should be shown visually like a movable force field that controls the HOT zone. Show as a **Emerald force field**.
 Nodes within the HOT zone means it meets profit threshold (it's inside the force field).
 The force field should be transparent and we clearly see the nodes change from their normal color and they enter the HOT zone.
 Please move all other tables etc, into compact tables that when clicked on, they pop up front and center until closed.
