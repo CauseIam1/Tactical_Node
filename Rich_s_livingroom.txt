@@ -3,8 +3,7 @@ MyXRPL Project North Star - Network Architecture
 Server
 Dell 7910
 32GB RAM
-256GB SDD1 running OS and Rippled
-256GB SSD2 running all other containers including ollama
+256GB SDD
 Cline (Alice) is running deepseek-v4-pro:cloud on ollama pro subscription.
 Her tasks include coding and all system administration (using .clinerules populated with _clinerules_code.txt)
 He can also be used for technical chat (using .clinerules populated with _clinerules_chat.txt)
