@@ -1,16 +1,16 @@
 # Bare Metal XRPL Node & Trading Bot
 
-# **[Episode 1](Episode-01.txt)**
+# **[Episode 1](01.md)**
 
-# **[Episode 2](Episode-02.txt)**
+# **[Episode 2](02.md)**
 
-# **[Episode 3](Episode-03.txt)**
+# **[Episode 3](03.md)**
 
-# **[Episode 4](Episode-04.txt)**
+# **[Episode 4](04.md)**
 
-# **[Project North Star](Project-North-Star.txt)**
+# **[Project North Star](NorthStar.md)**
 
-**[My Livingroom](Rich_s_livingroom.txt)**
+**[My Livingroom](myhouse.md)**
 
 **![Holodeck Image](Holodeck.png)**
 
