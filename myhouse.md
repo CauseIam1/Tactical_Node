@@ -16,7 +16,7 @@ Running kokoro text to speech for Cline's responses (script uses  ctl+alt+s to i
 
 Miss Pi - (Technical asstant that has no write access to the server)
 Raspberry Pi 5 16GB RAM in Freenove case secured to a 27" Dell monitor on an articulating arm, to keep her close.
-She is attached under the USB Dell soundbar (bottom mounted to monitor), has a built in forward facing dual camaras and Solocast USB Microphone for voice input.
+She is attached under the USB Dell soundbar (bottom mounted to monitor), has built in forward facing dual camaras and Solocast USB Microphone for voice input.
 128GB NVMe 
 Miss Pi is running nemotron-3-super:cloud on ollama pro subscription.
 Using VS-Code SSH into Miss Pi using Continue to write all code and scripts for Miss Pi. 
