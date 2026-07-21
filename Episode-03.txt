@@ -1,0 +1,82 @@
+# Episode 3 Script: Igniting the Core Node (The Direct Prompt Handshake)
+### Intro & The Primary Drive Priority
+Welcome back. Up to this point, our automated trading ecosystem is fully containerized, our storage safeguards are locked down, and our AI co-pilot, Cline, knows exactly what architectural boundaries it must operate within. But right now, our workspace is an absolute blank slate. Our trading dashboard and arbitrage loops have no data to process. We refuse to depend on public, rate-limited RPC endpoints that introduce network lag and leak our transaction strategies to third parties.
+Remember the golden rule of this channel: **your typing days are over**. You do the human thinking; the AI executes the typing. Today, we aren't going to sit here and manually grind out messy configuration files. Instead, we are going to hand an explicit, tactical directive straight to our autonomous coding agent, Cline, and watch it deploy a synchronized, mainnet XRP Ledger node directly onto our machine in seconds.
+But before we drop the prompt, let's establish our physical hardware boundary from Episode 1. While QuestDB and our trading microservices will eventually live on our secondary SSD array (/mnt/containers), the core ledger engine—xrpld—must map its data store directly to our **primary drive**. The XRP Ledger writes transactional data to disk continuously using NuDB. To guarantee zero disk contention and prevent our background apps from starving our ledger node of throughput, we must anchor this container's massive blockchain database straight to our root NVMe. Let's hand the reins to the agent.
+### Phase 1: The Hands-Free Voice Bridge
+Before we ignite that core node, we are taking our "no typing" rule to the absolute extreme. To make this ecosystem truly autonomous, we want it completely hands-free. Since we already hooked up our Open WebUI dashboard and secured our server in Episode 1, we are now going to build a real-time WebSocket bridge between your phone and your Next.js frontend.
+When you use the voice-to-text feature on your phone via Open WebUI, we want that text instantly broadcast and injected directly into our active workspace and Cline's interface. You will literally pace around the room, talk to your server, and watch the software build itself.
+> **A quick disclaimer on the mobile microphone:** Getting your Android device to allow microphone access over a local network usually requires an active HTTPS connection. Because everyone's local routing and SSL setup is different, resolving that HTTPS requirement is a per-case issue you'll need to sort out for your specific device. Once you have that locked in, this bridge handles the rest.
+> 
+Grab the "Voice-Bridge Prompt" and paste it straight into your Cline input box. Since this is a fresh setup, here is the exact strategic blueprint we are handing him to build this entire backend pipeline from scratch:
+```bash
+Hi Cline, 
+Please reference the file .clinerules verbatim to maintain full system context for our environment. 
+We are doing a clean implementation of a real-time WebSocket bridge between our Open WebUI instance and our Next.js 14 frontend client (both running bare-metal). The goal is to allow me to use voice-to-text on my phone via Open WebUI, and have that text instantly injected into our client interface.
+Please perform the following build steps:
+1. WEBSOCKET SERVER: Establish a lightweight WebSocket server by leveraging our existing Next.js backend infrastructure (creating a custom server.js) to listen for incoming real-time text streams.
+2. OPEN WEBUI PIPELINE: Create and configure a clean pipeline within Open WebUI (e.g., voice_bridge_pipeline.py) to broadcast speech-to-text tokens to this WebSocket server.
+3. FRONTEND INTEGRATION: Update our Next.js client interface with a custom React hook (e.g., useVoiceWebSocket) to subscribe to this connection, and dynamically inject incoming text directly into a floating overlay in the active workspace.
+Ensure all code adheres to the high standards outlined in .clinerules, utilizing clean error handling for network streams and maintaining high scannability.
+```
+Hit enter and let Cline execute. He will instantly construct all the required bridging components—the custom server, the WebUI Python pipeline, and the React overlay. Once that connects, your voice is the only keyboard you need. Now that our hands-free command center is locked in, let's get back to our core ledger node.
+### Phase 2: The Agent Prompt Delivery (XRP Ledger Install)
+We are going to paste our next prompt directly into the Cline input box in our VS Code sidebar right now to begin installing the Ripple D network, which is our core XRP Ledger node. Let’s read exactly what we are instructing our agent to do to ensure our server file parameters are perfectly set:
+```bash
+Cline, read our workspace rules in .clinerules.
+I need you to orchestrate our core local XRPL node using Docker Compose.
+Create a docker-compose.yml file in our root project directory.
+Configure the rippled service using the official xrpllabsofficial/xrpld:latest image.
+Map internal ports 5005, 6006, and 51235 to the host.
+Now, strictly apply our physical drive separation rule from our rules file: ensure the blockchain ledger data volume maps directly to ~/xrpld-data on our primary host NVMe drive.
+Once the compose file is written, initialize a local ./config folder and generate a high-performance, medium-node xrpld.cfg configuration with the following strict parameters: Use NuDB with online_delete=512 and advisory_delete=0. Set database_path to /var/lib/rippled and debug_logfile to /var/log/rippled/debug.log.
+Strictly limit peers_max to 2 to reduce network noise, and set ips_fixed to s1.ripple.com 51235 and s2.ripple.com 51235.
+Also generate a validators.txt file.
+Do not execute the container yet; notify me when the configuration files are fully written to disk.
+```
+Hit enter in Cline and watch your file explorer sidebar. Look at that! In less than five seconds, Cline reads the instruction, references our architecture guardrails, creates the config folder, drafts a beautiful, high-performance C++ ledger configuration file, maps out the official image tags, and locks the blockchain database paths straight to your primary operating system drive. He didn't make a single path misalignment, and you didn't have to write a single bracket of syntax. 
+### Phase 3: Dissecting the Automated Configurations
+Now that Cline has built out our files, let’s inspect the engineering logic he injected to understand exactly why this configuration is so optimized.
+If you open up the newly created docker-compose.yml file, you will see our ports neatly exposed: port 5005 for internal JSON-RPC requests, port 6006 for real-time WebSockets, and port 51235 for peer-to-peer network consensus. Notice the data volume path: ~/xrpld-data maps straight to our primary user home folder on our main operating system NVMe drive—perfectly separating our intensive blockchain reads and writes from our secondary drive applications.
+Next, let's look at the config/xrpld.cfg file Cline generated. He overrode the default network behaviors to optimize our node for rapid trading queries:
+```ini
+[node_size]
+medium
+
+[node_db]
+type=NuDB
+path=/var/lib/rippled/nudb
+online_delete=512
+advisory_delete=0
+
+[database_path]
+/var/lib/rippled
+
+[peers_max]
+2
+
+[ips_fixed]
+s1.ripple.com 51235
+s2.ripple.com 51235
+
+```
+Pay strict attention to the database settings here. He set our database type to NuDB and explicitly dictated online_delete=512. This acts as our automatic ledger garbage collector—it prunes data to the last 512 validated ledgers to save disk space, keeping our memory footprint light and execution times razor-sharp. Also, to strictly limit connections, reduce network noise, and lower latency, he capped peers_max to 2 and hardcoded our connections only to the trusted s1.ripple.com and s2.ripple.com servers.
+### Phase 4: Launching the Core Node
+Our configurations are pristine, our storage mounts are perfectly split, and our networks are fully mapped. Now, we execute our deployment. In your standard terminal workspace, bring the ledger engine online in detached background mode:
+```bash
+docker compose up -d rippled
+
+```
+The container manager immediately evaluates our setup, pulls down the official compiled C++ binary image from the repository registry, maps the primary drive volumes, and fires up the engine.
+### Verification Milestone: Evaluating the Consensus State
+To absolutely guarantee that our local ledger instance is running safely, interacting with the peer network, and syncing properly, we execute an internal runtime evaluation directly inside our active container:
+```bash
+docker exec rippled xrpld server_info
+
+```
+Look at this server telemetry output on your screen. We are inspecting three key metrics:
+ 1. **peers:** This value will rapidly scale up, proving our node has cracked through network firewalls and is actively communicating with public hubs.
+ 2. **server_state:** Watch this state progress. It will start at disconnected, phase into syncing, and settle firmly on full. Once it says full, your node is officially synchronized with global ledger consensus.
+ 3. **complete_ledgers:** Instead of showing an empty state, you will see sequential ledger blocks locking into your primary drive storage live.
+Our core blockchain data engine is officially synchronized on bare-metal hardware, operating completely isolated inside our container system with zero impact on our secondary drive workspace.
+In **Episode 4**, we are going to expand the stack. We will copy-paste a master composition prompt into Cline to pull QuestDB into our secondary SSD array, connect its internal ingestion lines straight to this local node, and start logging high-frequency market liquidity tracking data live. See you there.
