@@ -10,7 +10,6 @@
 
 # **[Project North Star](NorthStar.md)**
 
-**[My Livingroom](myhouse.md)**
-
 **![Holodeck Image](Holodeck.png)**
 
+**[My Livingroom](myhouse.md)**
