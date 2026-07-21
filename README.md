@@ -1,12 +1,12 @@
 # Bare Metal XRPL Node & Trading Bot
 
-# **[Episode 1](Episode01.txt)**
+# **[Episode 1](Episode-01.txt)**
 
-# **[Episode 2](Episode02.txt)**
+# **[Episode 2](Episode-02.txt)**
 
-# **[Episode 3](Episode03.txt)**
+# **[Episode 3](Episode-03.txt)**
 
-# **[Episode 4](Episode04.txt)**
+# **[Episode 4](Episode-04.txt)**
 
 # **[Project North Star](Project-North-Star.txt)**
 
