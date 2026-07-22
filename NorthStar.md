@@ -95,18 +95,17 @@ To ensure maximum component reusability without sacrificing situational awarenes
  * **Radar Page (The Hunter):** Tactical Purples and Neon Magentas. It represents manual, high-intensity sniper targeting.
  * **Bot Page (The Ecosystem):** Bioluminescent Cyans, Teals, and Sea Greens. It represents a living, automated organism.
 
-
 ### Radar Page
 #### 1. Objective & Core Paradigm
-The Radar Page tracks **asset-to-asset relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices. 
-All operations are strictly asset-to-asset, leveraging the XRPL AMM pools, using XRP solely as a background normalization anchor to maintain precise structural proportions across the visual coordinate grid.
+The Radar Page tracks **asset-to-asset relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices. All operations are strictly asset-to-asset, leveraging the XRPL AMM pools, using XRP solely as a background normalization anchor to maintain precise structural proportions across the visual coordinate grid.
 #### 2. Data Integration & State Mapping
 The frontend serves as an interactive visualization layer ("dumb glass") that hooks directly into the trading bot's dynamic 60-ledger window ratio tracking streams. The bot's internal status outputs are mapped directly to four distinct visual states:
-* **Outside watch zone (each asset is a different color):** Exchange rate is not high enough to enter our HOT zone (when it enters inside sliding threshold window, it enters actively being watched and changes to expanding). Returning to it's color if it falls back outside the HOT zone.
-* **Expanding (Vibrant Green Blip):** Exchange rate is actively widening in favor of a swap advantage; accumulating unrealized asset volume potential.
-* **Apex (Flashing White / Cyan):** Exchange rate expansion has flattened at its local maximum over the rolling 60 ledgers. Maximum swap yield is active.
-* **Compression (Warning Orange Flashing):** Ratio prints its first confirmed down-tick from the peak. The manual reverse swap window is open.
+ * **Outside watch zone:** Each asset is a different color. The exchange rate is not high enough to enter our HOT zone (when it enters inside the sliding threshold window, it becomes actively watched and changes to expanding). It returns to its color if it falls back outside the HOT zone.
+ * **Expanding (Vibrant Green Blip):** Exchange rate is actively widening in favor of a swap advantage; accumulating unrealized asset volume potential.
+ * **Apex (Flashing White / Cyan):** Exchange rate expansion has flattened at its local maximum over the rolling 60 ledgers. Maximum swap yield is active.
+ * **Compression (Warning Orange Flashing):** Ratio prints its first confirmed down-tick from the peak. The manual reverse swap window is open.
 > **System Color Code Override:** Any node currently undergoing a manual override, custom tracking adjustment, or tactical staging sequence will bypass standard state coloration and glow **Tactical Magenta**.
+> 
 #### 3. Topography & Living Micro-Physics (3D view anchored in the center)
  * **The Gravity Anchor:** The base currency anchor (XRP) is pinned dead-center at coordinates (0,0).
  * **Radial Distance Calculation:** An asset pair's distance from the center (radius) is determined by its current ratio divergence. Positive divergence pulls the blip inward toward the actionable core; negative divergence drifts it outward.
@@ -116,17 +115,24 @@ Trade confirmation occurs exclusively via Xaman payloads pushed directly to the 
  * **The Interceptor Mechanism:** If a user clicks "Decline/Cancel" on a State 3 (Compression) reverse swap payload, the backend catches the cancelled webhook event.
  * **The Automated Bump:** The system intercepts this event and automatically applies a localized **+5% ratio threshold modifier** to that specific asset pair in the database.
  * **The Visual Feedback:** The blip instantly shifts to **Tactical Magenta**, moves back to an Expanding layout path, and continues tracking until it challenges the newly elevated apex target.
-#### 5. Chained 2-Step Resurrection Console
-Dormant nodes resting on the outer bedrock floor can be manually selected to open a dedicated Diagnostics Sidebar. Igniting a dead asset pair executes a hard-coded two-step transaction sequence:
- 1. **Step 1: The Feedback Spark (0.1 XRP Payment):** Triggering the reset fires a 0.1 XRP payment payload in the losing direction to force a clean engine tracking reset. Upon signature confirmation, the node turns **XRP Blue** and snaps into a temporary "Staging Ring" orbit.
- 2. **Step 2: The Asset Ignition Swap:** The frontend automatically intercepts the Step 1 success webhook and pushes Payload 2 (the actual on-chain asset-to-asset flip) to the phone, automatically calculating the exact asset volumes needed to match the user's entered `[ Ignition Capital (XRP Equivalent) ]` input field.
- 3. **The Deployment:** Once Payload 2 clears the ledger, the node drops directly into the Staging Zone just outside the active perimeter line and begins its live expansion tracking cycle.
-#### 6. Threshold sliding scale
+#### 5. Tactical Override & Any-to-Any Swap Portal
+Replacing legacy workarounds, the Radar Page features a fluid, any-to-any manual swap portal for spontaneous asset cross-swapping.
+ * **Perimeter HUD Placement:** To preserve the North Star "viewport" philosophy, the "Tactical Override" button is pinned to the outer HUD. The center 3D canvas must remain completely unobstructed.
+ * **Glassmorphic Execution Modal:** Clicking the override opens a sleek modal overlay to select an Input Asset, Output Asset, and XRP-equivalent swap amount.
+ * **Pre-Flight Safety Check:** Before payload generation, the UI actively queries the backend (/api/radar/validate-swap) to verify an active AMM pool or liquid multi-hop route exists.
+   * *Invalid/Low Depth:* The "Push to Xaman" button is disabled; an ambient warning badge (e.g., [ INSUFFICIENT DEPTH ]) glows in Warning Amber/Red.
+   * *Valid:* Estimated output and pool depth are displayed, and the trigger button illuminates in XRP Blue or Emerald.
+ * **Dynamic Node Generation:** Swapping two currently untracked whitelisted assets dynamically spawns a new node on the Radar grid, instantly glowing **Tactical Magenta** to indicate an active manual override.
+#### 6. Dual-Variable Tracking & Asymmetric Scaling
+When doubling down on an asset pair that is already actively tracked, the backend calculates the mass using Dual-Variable Tracking to maintain UI integrity (one node per pair) and ensure execution safety:
+ * **Blended Cost Basis (The Math):** The backend mathematically merges the new swap with the old swap to create an averaged cost basis. This unified mass strictly dictates the node's radius position on the 3D Radar grid.
+ * **Execution Flop Size (The Safety Valve):** This value remains frozen at the volume of the operator's *very first* swap in that position.
+ * **Tranche-Based Exit:** When the blended node reaches Apex and drops into Compression (Warning Orange), the generated reverse-swap Xaman payload strictly sizes itself using the execution_flop_size, allowing the operator to safely ladder out of the averaged-down position.
+#### 7. Threshold sliding scale
 The sliding scale (only controls threshold for manual swaps not the trading bot swaps) should be shown visually like a movable force field that controls the HOT zone. Show as a **Tactical Purple force field**.
 Nodes within the HOT zone means it meets profit threshold (it's inside the force field).
 The force field should be transparent and we clearly see the nodes change from their normal color, to green as they enter the HOT zone.
 Please move all other tables etc, into compact tables that when clicked on, they pop up front and center until closed.
-
 
 ### Bot Page
 The Bot page combines both the radar (like the manual radar) and the bioluminescent pond together. 
