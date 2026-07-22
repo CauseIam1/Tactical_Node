@@ -135,9 +135,6 @@ The force field should be transparent and we clearly see the nodes change from t
 Please move all other tables etc, into compact tables that when clicked on, they pop up front and center until closed.
 
 ### Bot Page
-The Bot page combines both the radar (like the manual radar) and the bioluminescent pond together. 
-Since, the nodes for both sections, are the same nodes, let's combine visuals of all the trading bots actions.
-Clicking on a node should show the same info as the Radar page as to where the swap sits for that node or info if it's not a swap.
 #### 1. Bot-Radar
 The Bot-Radar tracks **asset-to-asset relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices. All operations are strictly asset-to-asset, leveraging the XRPL AMM pools, using XRP solely as a background normalization anchor to maintain precise structural proportions across the visual coordinate grid.
 #### 2. Data Integration & State Mapping
@@ -154,6 +151,12 @@ The frontend serves as an interactive visualization layer ("dumb glass") that ho
 The sliding scale (only controls threshold for bot asset swaps not the manual swaps) should be shown visually like a movable force field that controls the HOT zone. Show as a **Cyan force field**.
 Nodes within the HOT zone means it meets profit threshold (it's inside the force field).
 The force field should be transparent and we clearly see the nodes change from their normal color, to green as they enter the HOT zone.
+#### 5. Bot Trade & Seed Injection Portal
+* **Perimeter HUD Placement:** Pin the "Inject Bot Trade" trigger button to the outer perimeter HUD on the Bot Page to keep the center 3D canvas and Bioluminescent Pond completely unobstructed.
+* **Glassmorphic Execution Modal:** Clicking the trigger opens a compact form to select an Input Asset, Output Asset, Swap Amount (XRP-equivalent), and optional execution parameters.
+* **Pre-Flight Validation Check:** The UI queries `/api/trading-bot/validate-injection` before dispatching to verify that the Trading Bot Hot Wallet holds sufficient balance and that a liquid AMM pool exists.
+* **Backend Execution & Engine Handoff:** Dispatched via REST to `/api/trading-bot/inject-swap`, the Java engine physically executes the initial swap via `TransactionExecutionService.java`, automatically registering the exact cost basis and execution hash into the `MeanReversionEngine` so the pair transitions from `IDLE` to `ANCHOR_MONITORING`.
+* **State & Visual Synchronization:** Once registered, the backend logs the execution into QuestDB (`amm_balances` / telemetry tables), and the frontend dynamically spawns or awakens the corresponding node on the Bot-Radar grid within the Cyan force field, animating a "Splash" ripple across the Bioluminescent Pond.
 #### The Bioluminescent Pond
 #### 1. 🪸 The Bioluminescent Pond (ACTIVE_IDLE State) (3D view anchored in the center)
 Instead of static shapes, the UI uses low-overhead ambient animations that leverage the local GPU to look incredibly smooth without eating up execution cycles.
