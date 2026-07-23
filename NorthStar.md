@@ -135,68 +135,50 @@ The force field should be transparent and we clearly see the nodes change from t
 Please move all other tables etc, into compact tables that when clicked on, they pop up front and center until closed.
 
 ### Bot Page
-#### 1. Bot-Radar
-The Bot-Radar tracks **asset-to-asset relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices. All operations are strictly asset-to-asset, leveraging the XRPL AMM pools, using XRP solely as a background normalization anchor to maintain precise structural proportions across the visual coordinate grid.
-#### 2. Data Integration & State Mapping
-The frontend serves as an interactive visualization layer ("dumb glass") that hooks directly into the trading bot's dynamic 60-ledger window ratio tracking streams. The bot's internal status outputs are mapped directly to four distinct visual states:
-* **Outside watch zone (each asset is a different color):** Exchange rate is not high enough to enter our HOT zone (when it enters inside sliding threshold window, it enters actively being watched and changes to expanding). Returning to it's color if it falls back outside the HOT zone.
-* **Expanding (Vibrant Green Blip):** Exchange rate is actively widening in favor of a swap advantage; accumulating unrealized asset volume potential.
-* **Apex (Flashing White / Cyan):** Exchange rate expansion has flattened at its local maximum over the rolling 60 ledgers. Maximum swap yield is active.
-* **Compression (Warning Orange Flashing):** Ratio prints its first confirmed down-tick from the peak. The Bot should trigger the transaction and the node should return to it's normal position as the swap has been reset into the other direction.
-#### 3. Topography & Living Micro-Physics (3D view anchored in the center)
- * **The Gravity Anchor:** The base currency anchor (XRP) is pinned dead-center at coordinates (0,0).
- * **Radial Distance Calculation:** An asset pair's distance from the center (radius) is determined by its current ratio divergence. Positive divergence pulls the blip inward toward the actionable core; negative divergence drifts it outward.
- * **Living Node Shaders (Vibrations):** Pairs experiencing rapid ratio expansion execute a high-frequency micro-vibration/shake effect to attract immediate tactical focus.
-#### 4. Threshold sliding scale
-The sliding scale (only controls threshold for bot asset swaps not the manual swaps) should be shown visually like a movable force field that controls the HOT zone. Show as a **Cyan force field**.
-Nodes within the HOT zone means it meets profit threshold (it's inside the force field).
-The force field should be transparent and we clearly see the nodes change from their normal color, to green as they enter the HOT zone.
-#### 5. Bot Trade & Seed Injection Portal
-* **Perimeter HUD Placement:** Pin the "Inject Bot Trade" trigger button to the outer perimeter HUD on the Bot Page to keep the center 3D canvas and Bioluminescent Pond completely unobstructed.
-* **Glassmorphic Execution Modal:** Clicking the trigger opens a compact form to select an Input Asset, Output Asset, Swap Amount (XRP-equivalent), and optional execution parameters.
-* **Pre-Flight Validation Check:** The UI queries `/api/trading-bot/validate-injection` before dispatching to verify that the Trading Bot Hot Wallet holds sufficient balance and that a liquid AMM pool exists.
-* **Backend Execution & Engine Handoff:** Dispatched via REST to `/api/trading-bot/inject-swap`, the Java engine physically executes the initial swap via `TransactionExecutionService.java`, automatically registering the exact cost basis and execution hash into the `MeanReversionEngine` so the pair transitions from `IDLE` to `ANCHOR_MONITORING`.
-* **State & Visual Synchronization:** Once registered, the backend logs the execution into QuestDB (`amm_balances` / telemetry tables), and the frontend dynamically spawns or awakens the corresponding node on the Bot-Radar grid within the Cyan force field, animating a "Splash" ripple across the Bioluminescent Pond.
-#### The Bioluminescent Pond
-#### 1. 🪸 The Bioluminescent Pond (ACTIVE_IDLE State) (3D view anchored in the center)
-Instead of static shapes, the UI uses low-overhead ambient animations that leverage the local GPU to look incredibly smooth without eating up execution cycles.
- * **The "Heartbeat" Glow:** The central XRP gravity well and its satellite nodes have a soft, low-frequency outer glow that gently pulses like a slow breath.
- * **Ambient Micro-Data Plankton:** Tiny, translucent, pixelated dust particles lazily drift along the Bezier curves connecting the nodes. This represents the bot's background polling and minor liquidity checks.
- * **The Surface Ripple:** Every time a new block or ledger state updates without triggering a trade (roughly every few seconds), a faint, transparent ripple expands outward from the central XRP node across the entire canvas.
-#### 2. 🌊 The "Splash and Strike" Sequence - The External Impact
-When an external transaction hits a whitelisted AMM pool, it registers visually on the grid.
- * **The Shockwave:** The specific satellite node that took the hit (for example, the XRP/$TRUMP pool) violently shudders. A heavy, glowing shockwave ripple expands outward from that node across the dark canvas, distorting the grid lines of the 3D space.
- * **The Color Shift:** The node instantly flashes a bright, unstable color (like electric amber) to visually signal a sudden price deviation or an imbalance in pool depth.
- * **The Target Lock:** As those ripples travel through the pond toward our central XRP gravity well, our bot’s backend engine is processing the QuestDB atomic stream in microseconds. The soft, ambient "micro-data plankton" drifting around the asset nodes instantly freeze and align themselves like iron filings around a magnet, pointing directly toward the disrupted AMM pool.
-#### 3. The Counter-Strike (The Capture)
-The moment the engine confirms a profitable arbitrage path, execution fires instantly.
- * **The Kinetic Torpedo:** A high-density, hyper-velocity neon pixel storm erupts from the central XRP sun, piercing straight through the incoming shockwave ripples.
- * **The Re-balance:** The pixel stream hits the splashed AMM node, absorbing the price deviation, and instantly loops back to the center. The satellite node settles back into its calm, bioluminescent teal/cyan state, and the central XRP gravity well expands slightly as the realized profit splashes back into core base capital.
-#### 4. 🦈 The Swarm Attack Mechanics
- * **The Bloat (The Fat):** A massive external trade hits an AMM pool, causing that specific satellite node to rapidly swell into a large, volatile blob proportional to their raw transaction size.
- * **The Lock-On:** The ambient pixel particles floating around the system instantly stop their lazy drifting and shift from a calm, translucent blue to an aggressive hunter-orange, aligning themselves directly at the bloated node.
- * **The Feast:** The pixel dudes condense into a hyper-dense, high-velocity kinetic swarm that descends on the bloated node, physically chipping away at the swollen node's volume until it shrinks back down to its healthy, baseline size.
- * **The Harvest Run:** The swarm, now glowing bright green with the absorbed arbitrage value, streams along the sequential multi-hop path and slams back into the central XRP gravity well, letting out a massive green shockwave to signal that the profit has been secured.
-#### 5. 🚨 The "Stolen Feast" Visual Mechanic
- * **The Interception:** If a competing external transaction settles on the ledger first, the arbitrage window instantly slams shut.
- * **The Crimson Shockwave:** The bloated node violently collapses into a sharp, high-contrast **crimson flash**.
- * **The Scattered Retreat:** The pixel dudes turn a jagged, angry red, pulsing erratically before scattering wildly back into their ambient orbits like a disturbed hornets' nest.
- * **The Ghost Path:** For exactly 1 minute after the failure, a faint, glowing red "ghost trail" remains along the path the bot planned to take to trace the bottleneck.
-#### 6. 🛠️ The Engine Optimization Deck
-Clicking on a faded red Ghost Path smoothly expands a tactile, holographic control panel with beautiful blur effects containing two main interactive elements:
- * **The Latency / Gas Throttle:** A physical slider to safely inject a higher fee parameter or adjust transaction submission speed to outrun the competition.
- * **The Slippage Calibration Dial:** A dial to dynamically tweak the `deviation_override` thresholds, allowing the bot to accept tighter or wider margins depending on market aggression.
-#### 7. 🔥 The Smoldering Ember Decay Lifecycle
- * **Minute 0:00 (The Strike & Collapse):** Failed path turns into a sharp, solid red vector line.
- * **Minute 0:30 (The Cool-Down):** The sharp red line dissolves into a textured "smoldering ember" trail (muted, deep amber-red, 50% opacity).
- * **Minute 0:45 (The Dissipation):** The trail drifts slightly with the ambient current, breaking apart into 20% opacity.
- * **Minute 1:00 (The Purge):** The remaining particles completely evaporate, returning the environment to its breathing, bioluminescent state.
- * **The Micro-Metrics HUD:** Hovering over an ember trail during this 1-minute window expands a sleek holographic tooltip with two simple visual gauges: **The Latency Gap** (milliseconds lost by) and **The Volume Bloat** (size of the missed trade).
-#### 8. Threshold sliding scale for "splash in pond" (The Slippage Calibration Dial)
-The sliding scale should be shown visually like a movable force field that controls the HOT zone. Show as a **Emerald force field**.
-Nodes within the HOT zone means it meets profit threshold (it's inside the force field).
-The force field should be transparent and we clearly see the nodes change from their normal color and they enter the HOT zone.
-Please move all other tables etc, into compact tables that when clicked on, they pop up front and center until closed.
+#### 1. Objective & The Tactical Command Deck (HUD)
+The Bot page serves as a full-fledged **Tactical Command Deck**. It completely adheres to the "viewport" philosophy: the center of the screen is a 3D glass window looking directly into the living ecosystem (The Bioluminescent Pond & Bot-Radar). To keep this central canvas completely unobstructed, all operational dials, execution parameters, and asset routing controls are pinned to a cybernetic **Perimeter HUD** on the left and right edges.
+#### 2. The Perimeter HUD Topography
+To maintain a breathable center, the HUD is strictly partitioned by function:
+ * **Top Rim:** Global Network Vitals & Uptime Telemetry.
+ * **Bottom Rim:** Real-time Terminal Log Ticker displaying the engine's micro-decisions.
+ * **Left Panel (The Tactical Dials):** Live, real-time control over the Java backend's execution variables.
+   * **Offshore Rig Allocation Slider (0% - 100%):** Replaces hard-coded caps. Dynamically scales the Rotational Capital Pool limit.
+   * **Tranche Step Spacing (1% - 10%):** Tightens or widens laddering distance during high-volatility pumps.
+   * **Variance Decay Dial:** Adjusts how aggressively the bot locks in early profits versus waiting for a full mean reversion.
+   * **The Latency / Gas Throttle:** A physical slider to dynamically pad network fees and outrun competing bots during high-value arbitrage.
+ * **Right Panel (Manual Liquidity Injection Console):** A deliberate, human-in-the-loop terminal for strategic ecosystem growth (zero automation).
+   * **Asset Selector:** Dropdown to select a token from the hot wallet.
+   * **Valuation Toggle:** Allows input of a raw token amount OR an XRP-equivalent value (e.g., "Send 500 XRP worth of XAH"), with auto-conversion based on live AMM rates.
+   * **Manual Execution Switch:** A deliberate "Send to Cold Wallet" trigger to route nutrients to the foundational liquidity pools precisely when the operator decides.
+#### 3. Bot-Radar & Data Mapping
+The Bot-Radar tracks **asset-to-asset relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices, using XRP solely as a background normalization anchor. The frontend hooks into the bot's dynamic 60-ledger window ratio tracking streams, mapped to four states:
+ * **Outside Watch Zone (Base Color):** Exchange rate is below the HOT zone threshold.
+ * **Expanding (Vibrant Green Blip):** Exchange rate is actively widening; accumulating unrealized asset volume potential.
+ * **Apex (Flashing White / Cyan):** Exchange rate expansion has flattened at its local maximum. Maximum swap yield is active.
+ * **Compression (Warning Orange Flashing):** Ratio prints its first confirmed down-tick from the peak. The Bot triggers the transaction, and the node returns to its normal position.
+#### 4. The Bioluminescent Pond (3D View Anchor)
+Instead of static shapes, the UI uses low-overhead ambient animations leveraging the local GPU:
+ * **The "Heartbeat" Glow:** The central XRP gravity well and its satellite nodes gently pulse like a slow breath.
+ * **Ambient Micro-Data Plankton:** Tiny, translucent particles lazily drift along the Bezier curves, representing background polling.
+ * **The Surface Ripple:** Faint, transparent ripples expand outward from the central XRP node with every ledger state update.
+#### 5. 🌊 The "Splash and Strike" Sequence
+When an external transaction hits a whitelisted AMM pool, it registers visually:
+ * **The Shockwave:** The impacted satellite node (e.g., XRP/$TRUMP) violently shudders, sending a glowing shockwave across the dark canvas.
+ * **The Color Shift:** The node flashes an unstable color (electric amber) signaling a price deviation.
+ * **The Target Lock:** The ambient "micro-data plankton" instantly freeze and align like iron filings, pointing directly toward the disrupted AMM pool as the backend processes the QuestDB atomic stream in microseconds.
+ * **The Counter-Strike:** A hyper-velocity neon pixel storm erupts from the central XRP sun, pierces the incoming shockwave, hits the splashed AMM node, and instantly loops back. The central XRP gravity well expands slightly as realized profit splashes back into base capital.
+#### 6. 🦈 The Swarm Attack Mechanics (Fat Bloat)
+ * **The Bloat:** A massive external trade causes a satellite node to rapidly swell into a large, volatile blob.
+ * **The Feast:** The pixel particles condense into a hyper-dense, hunter-orange kinetic swarm that descends on the bloated node, physically chipping away at its volume.
+ * **The Harvest Run:** Glowing bright green, the swarm streams along the multi-hop path and slams back into the central XRP gravity well, releasing a green shockwave.
+#### 7. 🚨 The "Stolen Feast" & Smoldering Ember Decay
+ * **The Interception:** If a competing bot settles first, the bloated node collapses into a sharp **crimson flash**.
+ * **The Scattered Retreat:** The pixel swarm turns jagged red and scatters erratically.
+ * **The Smoldering Decay (1-Minute Lifecycle):** A glowing red "ghost trail" marks the failed path. At 0:30, it dissolves into a textured smoldering ember (50% opacity). At 0:45, it breaks apart. At 1:00, it completely evaporates.
+ * **The Micro-Metrics HUD:** Hovering over an ember trail reveals a holographic tooltip showing **The Latency Gap** (milliseconds lost by) and **The Volume Bloat**.
+#### 8. Visual Force Fields (The Sliding Scales)
+ * **Mean Reversion Field (Cyan):** A visual force field controlling the HOT zone for bot asset swaps. Nodes entering this transparent boundary shift to green.
+ * **Splash Slippage Dial (Emerald):** Tied to the Left Panel HUD, this adjustable force field visually represents the deviation_override thresholds, expanding or contracting to show how wide of a margin the bot will accept for a Strike.
 
 #### Matrix Page
 ### The Reality of the 80/20 Split (Backend vs. Frontend)
