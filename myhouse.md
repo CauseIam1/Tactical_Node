@@ -57,3 +57,6 @@
 ### V. Tactical Audio-Visual Feedback
  * **OLED Expressions:** Utilizes the Freenove dedicated OLED screen to reflect system states, displaying wide, attentive eyes when listening, animated waveforms when speaking, and an amber standby icon during a tactical hold.
  * **Auditory Telemetry:** Provides instantaneous mechanical UI sounds via the Dell soundbar, including comm-badge chirps for open microphones, tricorder trills for successful scanning, and mechanical door swooshes for sentry alerts.
+
+
+**![Server message](Gotify.png)**
