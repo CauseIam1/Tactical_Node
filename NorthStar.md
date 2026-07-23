@@ -149,7 +149,7 @@ To maintain a breathable center, the HUD is strictly partitioned by function:
  * **Right Panel (Manual Liquidity Injection Console):** A deliberate, human-in-the-loop terminal for strategic ecosystem growth (zero automation).
    * **Asset Selector:** Dropdown to select a token from the hot wallet.
    * **Valuation Toggle:** Allows input of a raw token amount OR an XRP-equivalent value (e.g., "Send 500 XRP worth of XAH"), with auto-conversion based on live AMM rates.
-   * **Manual Execution Switch:** A deliberate "Send to Cold Wallet" trigger to route nutrients to the foundational liquidity pools precisely when the operator decides.
+   * **Manual Execution Switch:** A deliberate "Send to Cold Wallet" trigger to route profits to the foundational liquidity pools precisely when the operator decides.
 #### 3. Bot-Radar & Data Mapping
 The Bot-Radar tracks **asset-to-asset relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices, using XRP solely as a background normalization anchor. The frontend hooks into the bot's dynamic 60-ledger window ratio tracking streams, mapped to four states:
  * **Outside Watch Zone (Base Color):** Exchange rate is below the HOT zone threshold.
