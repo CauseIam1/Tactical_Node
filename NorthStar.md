@@ -163,7 +163,7 @@ Instead of static shapes, the UI uses low-overhead ambient animations leveraging
  * **The Surface Ripple:** Faint, transparent ripples expand outward from the central XRP node with every ledger state update.
 #### 5. 🌊 The "Splash and Strike" Sequence
 When an external transaction hits a whitelisted AMM pool, it registers visually:
- * **The Shockwave:** The impacted satellite node (e.g., XRP/$TRUMP) violently shudders, sending a glowing shockwave across the dark canvas.
+ * **The Shockwave:** The impacted satellite node (e.g., XRP/XAH) violently shudders, sending a glowing shockwave across the dark canvas.
  * **The Color Shift:** The node flashes an unstable color (electric amber) signaling a price deviation.
  * **The Target Lock:** The ambient "micro-data plankton" instantly freeze and align like iron filings, pointing directly toward the disrupted AMM pool as the backend processes the QuestDB atomic stream in microseconds.
  * **The Counter-Strike:** A hyper-velocity neon pixel storm erupts from the central XRP sun, pierces the incoming shockwave, hits the splashed AMM node, and instantly loops back. The central XRP gravity well expands slightly as realized profit splashes back into base capital.
