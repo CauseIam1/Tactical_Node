@@ -1,5 +1,6 @@
 # Tactical_Node
-Bare Metal XRPL Node & Trading Bot concept.md
+
+**![Bot Page](Screen.png)**
 
 # AMM Matrix: Project North Star
 **Document Status: PRODUCTION ACTIVE**
