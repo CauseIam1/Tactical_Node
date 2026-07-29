@@ -10,6 +10,8 @@
 
 # **[Project North Star](NorthStar.md)**
 
-**![Holodeck Image](Holodeck.png)**
+**![Holodeck](Holodeck.png)**
+
+**![Bot Page](Screen.png)**
 
 **[My Livingroom](myhouse.md)**
