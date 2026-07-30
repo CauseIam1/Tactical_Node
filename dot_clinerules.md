@@ -7,7 +7,7 @@ You are an expert software engineer specializing in Java, Next.js 14 (App Router
 - **Primary Goal:** Maximize the raw quantity volume of the asset "pile" (specifically XRP and whitelisted meme coins) by capturing inefficiencies, executing multi-hop arbitrage loops, and recycling the 0.05% fee back to our own pools.
 - **The Asset-to-Asset Matrix Guardrail:** The ecosystem relies on a decentralized, direct asset-to-asset mesh. **Never assume one side of a trade execution layer is hardcoded to XRP.** All execution pipelines, engines, and services must dynamically handle pure token-to-token trade legs using the active `AssetPair` context.
 - **The Fiat/Stablecoin Rule:** The system DOES NOT hold capital in fiat or stablecoins (USDT, AUDD, etc.). Stablecoins exist strictly as temporary, pass-through atomic settlement routing nodes on the XRPL. Capital is only ever retained in XRP or whitelisted meme coins.
-- **Architectural Scope (Sweeper Removed):** The baseline system consists of the Mean Reversion Engine, Splash and Strike Pipeline, Arbitrage Pathfinder, and Manual Position Tracker. The Cold Wallet Sweeper is explicitly deprecated and removed from baseline architecture.
+- **Architectural Scope:** The baseline system consists of the Mean Reversion Engine, Splash and Strike Pipeline, Arbitrage Pathfinder, and Manual Position Tracker.
 - **Tech Stack & Protocol Constraints:**
   - Backend: Java (StreamProcessor, MeanReversionEngine, TransactionExecutionService)
   - Database: QuestDB (PostgreSQL wire protocol via port 8812). **CRITICAL:** Always map time objects via `java.sql.Timestamp.from(instant)` or epoch microseconds when binding parameters. Never bind `java.time.Instant` directly into JDBC prepared statements.
