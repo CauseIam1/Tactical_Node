@@ -96,7 +96,7 @@ To ensure maximum component reusability without sacrificing situational awarenes
  * **Idle / Base State:** All idle asset nodes derive their color strictly from a deterministic Hex-to-Color algorithm based on their unique XRPL currency code. This ensures every whitelisted asset (e.g., meme coins) retains a permanent, universal visual identity across all modules (Radar, Bot, and Matrix), building instant operator muscle memory. 
  * **The Anchor:** XRP is permanently hardcoded to Canonical Blue (#00A8FF) as the ecosystem's core gravity well.
 **2. Action States (Universal Muscle Memory)**
- * The core tactical states dynamically override the node's base hex color: Vibrant Green for **Expanding**, Flashing White/Cyan for **Apex**, Warning Orange for **Compression**, and Tactical Magenta for **Override/Manual**.
+ * The core tactical states dynamically override the node's base hex color: Vibrant Green for **Expanding**, Flashing White for **Apex**, Warning Orange for **Compression**, and Tactical Magenta for **Override/Manual**.
 **3. Distinct Ambient Atmospheres (The Environment)**
 While the nodes retain their individual universal colors, the ambient environment (background voids, grids, UI borders, and interactive threshold force fields) must strictly adhere to the following color palettes to instantly identify the active module:
  * **Matrix Page (The Vault):** Deep XRP Blues (#00A8FF) and stark Silvers. It represents cold, hard structural mass.
@@ -115,7 +115,7 @@ The Radar page completely adheres to the "viewport" philosophy. To keep the cent
 The frontend serves as an interactive visualization layer ("dumb glass") that hooks directly into the trading bot's dynamic 60-ledger window ratio tracking streams. The bot's internal status outputs are mapped directly to four distinct visual states:
  * **Outside Watch Zone (Universal Hex Color):** The exchange rate is not high enough to enter our HOT zone. The node rests in its deterministically generated base color (derived from its hex currency code), providing immediate visual identification. When it enters the sliding threshold window, it overrides to an action state. When it falls back out, it seamlessly reverts to its unique base color.
  * **Expanding (Vibrant Green Blip):** Exchange rate is actively widening in favor of a swap advantage; accumulating unrealized asset volume potential.
- * **Apex (Flashing White / Cyan):** Exchange rate expansion has flattened at its local maximum over the rolling 60 ledgers. Maximum swap yield is active.
+ * **Apex (Flashing White):** Exchange rate expansion has flattened at its local maximum over the rolling 60 ledgers. Maximum swap yield is active.
  * **Compression (Warning Orange Flashing):** Ratio prints its first confirmed down-tick from the peak. The manual reverse swap window is open.
 **System Color Code Override:** Any node currently undergoing a manual override, custom tracking adjustment, or tactical staging sequence will bypass standard state coloration and glow **Tactical Magenta**.
 #### 4. Tactical Override & Sliding Scales
