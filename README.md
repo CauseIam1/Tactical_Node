@@ -16,4 +16,4 @@
 
 **![Bot Page](Screen.png)**
 
-**[My Livingroom](myhouse.md)**
+**![Gotify](Gotify.png)**
