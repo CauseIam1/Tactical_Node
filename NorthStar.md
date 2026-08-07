@@ -1,6 +1,6 @@
 # Tactical_Node
 
-**![Bot Page](Screen.png)**
+**![Bot Page](screen.png)**
 
 # AMM Matrix: Project North Star
 **Document Status: PRODUCTION ACTIVE**
