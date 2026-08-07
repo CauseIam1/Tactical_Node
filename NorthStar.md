@@ -16,19 +16,19 @@ This ecosystem is a closed-loop inventory management and mesh rebalancing engine
 ## 2. Three-Wallet Topography & Execution Partitioning
 Capital and execution logic are cryptographically partitioned into three isolated r-addresses to ensure zero resource contention.
 
-### A. The Cold Wallet (Liquidity Foundation)
+### A. COLD_WALLET_ADDRESS (Liquidity Foundation - AMM Pools)
  * **Role:** The institutional vault and primary liquidity engine.
  * **Function:** Exclusive creator and deployer of private AMM pools; holds foundational LP tokens.
  * **Constraint:** Strictly isolated; never interacts with live trading engines and requires no hot-key access.
 
-### B. The Trading Bot Wallet (Automated Mesh Arbitrage)
+### B. MPT_RPN_WALLET_ADDRESS (Bot Page - ALL Trading Bot Controls on remain on this page)
  * **Role:** Programmatic hot wallet for the automated 24/7 execution engine.
  * **Function:1** Executes cumulative pile "flip-flops" across our asset pools
  * **Function:2** Executes The "Splash and Strike" Sequence (described below)
  * **Function:3** Executes rapid, multi-hop mesh network arbitrage to capture micro-inefficiencies and generate passive yield.
  * **Constraint:** Strictly rules-based execution governed by liquidity guardrails; operates with a hard-capped capital allocation to prevent broader portfolio exposure.
 
-### C. The Trading Wallet (Manual Asset to Asset Swaps)
+### C. TRADING_WALLET_ADDRESS (Radar Page - Copy of Bot Page but Controls manual swap Nodes)
  * **Role:** Operator's high-density command portal for active momentum trading.
  * **Function:** Executes cumulative pile "flip-flops" across across our asset pools via Human-In-The-Loop using Xaman.
  * **Constraint:** Utilizes secure Xaman SDK push-to-sign payloads; private keys are never exposed to the server.
@@ -74,7 +74,7 @@ The transition from the Command Deck into a specific module must feel kinetic an
 #### ALL 3D page (Radar, Bot and Matrix)
 In the React and WebGL world, we can use a library called React Three Fiber combined with GSAP (for buttery smooth camera animations) to create an interactive, living organism where the data responds directly to my spatial relationship with it.
 Architecting the interactive layer of these 3D tables.
-### 🌌 Interactive "Stellar Cartography" Mechanics
+### Interactive "Stellar Cartography" Mechanics
 **1. Omni-Directional Camera Controls (The Holographic Table)**
  * **The Mechanic:** OrbitControls with physics-based damping.
  * **The Experience:** This gives me full god-mode control. I can click and drag to orbit the ecosystem, scroll to seamlessly dive into the core, or pan across the void. 
@@ -89,96 +89,71 @@ Architecting the interactive layer of these 3D tables.
  * **The Mechanic:** Rather than static models, the geometry must be driven by custom GLSL shaders tied to backend metrics.
  * **The Experience:** The ecosystem will literally breathe. If market volatility spikes or the bot's transaction per minute (TPM) increases, the glowing ion trails move faster and the central core's pulsing animation accelerates. I will be able to gauge the health and speed of my automated economy just by looking at the rhythm of the table.
 This transforms the page from a static reporting tool into a fully interactive, living tactical map that utilizes my Alienware 32 4K QD-OLED and X-17's 3080Ti.
-Since XRP is our baseline bedrock and we measure the "global displacement mass" purely in xrp_equivalent, the visual size of our ecosystem should be driven by the actual, mathematical weight of the assets, not a hardcoded ratio.
-### 🎨 Unified Architecture, Distinct Atmospheres & Universal Node Identity
+Since XRP is our baseline bedrock and we measure the "global displacement mass" purely in xrp_equivalent, the visual size of our ecosystem should be driven by the actual, mathematical weight of the assets, not a hardcoded ratio (Except Active Nodes which are hardcoded in size only).
+### Unified Architecture, Distinct Atmospheres & Universal Node Identity
 To ensure maximum component reusability without sacrificing situational awareness, build a single, modular Node3D and 3DCanvas component that accepts a theme prop. 
 **1. Universal Node Identity (The Hex-to-Color Engine)**
  * **Idle / Base State:** All idle asset nodes derive their color strictly from a deterministic Hex-to-Color algorithm based on their unique XRPL currency code. This ensures every whitelisted asset (e.g., meme coins) retains a permanent, universal visual identity across all modules (Radar, Bot, and Matrix), building instant operator muscle memory. 
  * **The Anchor:** XRP is permanently hardcoded to Canonical Blue (#00A8FF) as the ecosystem's core gravity well.
 **2. Action States (Universal Muscle Memory)**
- * The core tactical states dynamically override the node's base hex color: Vibrant Green for **Expanding**, Flashing White for **Apex**, Warning Orange for **Compression**, and Tactical Magenta for **Override/Manual**.
-**3. Distinct Ambient Atmospheres (The Environment)**
-While the nodes retain their individual universal colors, the ambient environment (background voids, grids, UI borders, and interactive threshold force fields) must strictly adhere to the following color palettes to instantly identify the active module:
- * **Matrix Page (The Vault):** Deep XRP Blues (#00A8FF) and stark Silvers. It represents cold, hard structural mass.
- * **Radar Page (The Hunter):** Tactical Purples and Neon Magentas. It represents manual, high-intensity sniper targeting.
- * **Bot Page (The Ecosystem):** Bioluminescent Cyans, Teals, and Sea Greens. It represents a living, automated organism.
+ * The core tactical states dynamically override the node's base hex color: Vibrant Green for **Expanding**, Flashing White/Cyan for **Apex**, Warning Orange for **Compression**, and Tactical Magenta for **Override/Manual**.
+**3. Unified Ambient Atmospheres (The "Visual Twin" Architecture)**
+To embrace DRY principles and maintain a premium visual standard, the Bot Page and Radar Page function as exact visual clones. Both utilize the same high-fidelity 3D aesthetic and node animations. The context of the operator's viewport is determined entirely by the routing and the isolated data streams for the active nodes:
+ * **Matrix Page (The Vault):** Deep XRP Blues (#00A8FF) and stark Silvers. Represents cold, hard structural mass.
+ * **Bot Page & Radar Page (The Active Decks):** Both share a unified, premium visual identity (e.g., The Bioluminescent Pond aesthetic). They are exact UI clones, with the Bot Page strictly rendering the programmatic hot wallet's active nodes, and the Radar Page strictly rendering the manual Xaman wallet's sniper nodes. 
 
-### 📡 Radar Page (Revised for MVP & UI Layout)
+### Bot Page & Radar Page (The Visual Twins - Radar is twin of Bot but for manual snipe nodes instead of mpt nodes)
 #### 1. Objective & Core Paradigm
-The Radar Page tracks **asset-to-asset relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices. All operations are strictly asset-to-asset, leveraging the XRPL AMM pools, using XRP solely as a background normalization anchor.
-#### 2. Layout & Topography (The Viewport)
-The Radar page completely adheres to the "viewport" philosophy. To keep the central canvas completely unobstructed, all operational controls are pinned to a cybernetic **Perimeter HUD** on the left and right edges.
- * **Left/Right Perimeter HUD:** All tactical execution tools, sensitivity sliders, and tracking adjustments must be fully visible and accessible on the side panels. **Do not hide these in top navigation dropdowns.**
- * **Center Stage (Spectrum Panel):** The viewport is a full-screen, unobstructed 3D canvas displaying the tactical grid.
- * **Theme:** Strictly adheres to Tactical Purples and Neon Magentas.
-#### 3. Data Integration & State Mapping
-The frontend serves as an interactive visualization layer ("dumb glass") that hooks directly into the trading bot's dynamic 60-ledger window ratio tracking streams. The bot's internal status outputs are mapped directly to four distinct visual states:
- * **Outside Watch Zone (Universal Hex Color):** The exchange rate is not high enough to enter our HOT zone. The node rests in its deterministically generated base color (derived from its hex currency code), providing immediate visual identification. When it enters the sliding threshold window, it overrides to an action state. When it falls back out, it seamlessly reverts to its unique base color.
- * **Expanding (Vibrant Green Blip):** Exchange rate is actively widening in favor of a swap advantage; accumulating unrealized asset volume potential.
- * **Apex (Flashing White):** Exchange rate expansion has flattened at its local maximum over the rolling 60 ledgers. Maximum swap yield is active.
- * **Compression (Warning Orange Flashing):** Ratio prints its first confirmed down-tick from the peak. The manual reverse swap window is open.
-**System Color Code Override:** Any node currently undergoing a manual override, custom tracking adjustment, or tactical staging sequence will bypass standard state coloration and glow **Tactical Magenta**.
-#### 4. Tactical Override & Sliding Scales
- * **Visual Force Fields:** The sliding scale controls the HOT zone threshold for manual swaps. This is visualized as a **Tactical Purple force field**. Nodes entering this transparent boundary shift to green.
- * **Glassmorphic Execution Modal:** Clicking the manual override opens a sleek modal overlay to select an Input Asset, Output Asset, and XRP-equivalent swap amount.
-
-### 🦠 Bot Page (Revised for MVP & UI Layout)
-#### Objective & The Tactical Command Deck
-The Bot page serves as a full-fledged **Tactical Command Deck**. It completely adheres to the "viewport" philosophy: the center of the screen is a 3D glass window looking directly into the living ecosystem (The Bioluminescent Pond).
-#### 1. Bot-Radar & Data Mapping
-The Bot-Radar tracks **asset-to-asset relative exchange ratios** directly rather than absolute fiat or standalone XRP spot prices, using XRP solely as a background normalization anchor. The frontend hooks into the bot's dynamic 60-ledger window ratio tracking streams, mapped to four states:
- * **Outside Watch Zone (Universal Hex Color):** Exchange rate is below the HOT zone threshold. Nodes idle in their deterministically generated hex-seed color.
- * **Expanding (Vibrant Green Blip):** Exchange rate is actively widening; accumulating unrealized asset volume potential.
- * **Apex (Flashing White):** Exchange rate expansion has flattened at its local maximum. Maximum swap yield is active.
- * **Compression (Warning Orange Flashing):** Ratio prints its first confirmed down-tick from the peak. The Bot triggers the transaction, and the node returns to its universal base color.
+Both pages serve as full-fledged **Tactical Command Decks**. They adhere strictly to the "viewport" philosophy, utilizing identical 3D glassmorphic interfaces and node architectures to track **asset-to-asset relative exchange ratios**. 
+The fundamental rule of this architecture is strict data isolation:
+* **The Bot Page Route:** Feeds strictly from the Bot's `r-address` (via the `amm_balances` QuestDB table) to visualize automated, 24/7 ecosystem health.
+* **The Radar Page Route:** Feeds strictly from the Manual Trading `r-address` (via the `trading_balances` QuestDB table) to visualize manual Human-In-The-Loop momentum targets.
 #### 2. Layout & Control Architecture (Perimeter HUD)
-To keep the central canvas empty and breathable, all dials and execution parameters are strictly partitioned to the sides. **Do not use top navigation dropdowns for these controls; they must remain visible for immediate tweaking.**
- * **Left Panel (The Tactical Dials):** Houses the Offshore Rig Allocation Slider, Tranche Step Spacing, Variance Decay Dial, and Gas Throttle.
- * **Right Panel (Injection Console):** Houses the Manual Liquidity Injection Console, Asset Selector, Valuation Toggle, and Manual Execution Switch.
-#### 3. The Bioluminescent Pond (3D Canvas MVP)
-The UI uses low-overhead ambient animations leveraging the local GPU, strictly adhering to the lean action list:
- * **Central Core:** Pulsating sphere driven by the bot's TPM (Transactions Per Minute) rate.
- * **Bot Tracers:** Animated straight-line paths connecting nodes (strictly avoiding heavy Bezier curves to maintain stable frame rates).
- * **Execution Rings & Data Streams:** Lightweight animated expansion rings and particle arcs detailing active engine processing.
-#### 4. Interaction & Execution Feedback
-When an external transaction hits a whitelisted AMM pool, or the bot executes a trade, it registers visually:
- * **Splash Ripples:** Transparent ripples emanate precisely from the struck node (not the origin point).
- * **Alert Beacons:** Pulse animations trigger near relevant nodes to highlight active execution.
- * **Missed Opportunity Alerts:** If a swap bounces, fails, or is stolen by a competing bot, the UI triggers a high-contrast visual cue—such as an aggressive red flash or a shattered ripple. *(Note: This replaces the legacy, rendering-heavy "Stolen Feast" and smoldering ember decay sequences).*
- 
-#### Matrix Page
-### The Reality of the 80/20 Split (Backend vs. Frontend)
-**1. The Backend Reality (The Safety Lock)**
-In the Java engine, the 80/20 split is an "ironclad structural partition". The constant ROTATIONAL_CAPITAL_ALLOCATION = 0.20 exists purely as a risk management guardrail. It physically prevents the Matrix Rotator from risking more than 20% of my available capital on a single flip. It is a ceiling, not a literal representation of where my funds currently sit.
-**2. The Frontend Reality (Proper proportions)**
-If my Cold Wallet holds 9,000 XRP and my Trading Wallet holds 1,000 XRP, the visual "mass" of the ecosystem should be 90/10, everything should just be proportionally correct based on the raw XRP valuation.
-### 🛰️ Updated Directive for Alice: True-Mass Proportional Scaling
-**1. Eradicate Artificial Ratio Sizing**
- * **The Mechanic:** Do not use the coreCapitalAllocation (0.80) or rotationalCapitalAllocation (0.20) from the guardrails API to determine the physical size of the 3D models.
- * **The Execution:** The physical mass, scale, and gravitational pull of the 3D structures must be 100% dynamically derived from the real-time total_stack_xrp metric and the xrp_equivalent of the individual assets.
-**2. The "True Gravity" 3D Scaling Engine**
- * **The Cold Wallet (Warp Core):** Its scale is strictly determined by the cold_wallet_xrp value. If I dump a massive amount of capital into cold storage, the Warp Core physically expands on the table.
- * **The Trading Wallet (Orbital Rings):** Its thickness and density are strictly determined by the trading_wallet_xrp and trading_bot_xrp values.
-**3. Visualizing the Guardrail (The Redline)**
- * **The Mechanic:** Since the backend still enforces that 20% limit on active trading, we should visualize the *rule* without distorting the *mass*.
- * **The Execution:** Draw a holographic "Redline" or bounding sphere around the orbital rings. This represents the maximum 20% allocation capacity. If the active trading mass starts pushing up against that boundary, it glows red, letting me know the bot is maximizing its allowed capital exposure.
-By doing this, the 3D organism will literally reflect the true weight of my XRP pile, while still visually honoring the engine's safety limits.
-#### Phases of Implementation
-### 📋 Phase 1: The Data & Logical Foundation
-*Before the visual "cool factor," we must ensure the math is flawless.*
- * **1.1 Data Normalization:** Replace all hardcoded 12/88 ratios with a live data bridge to the account_info and amm_balances tables.
- * **1.2 True-Mass Logic:** Implement the "Proportional Scaling" engine. The 3D model size must now derive strictly from total_stack_xrp. If the Cold Wallet holds 95% of the wealth, the visual model must reflect 95% of the total mass.
- * **1.3 The Guardrail Visualizer:** Create a non-obtrusive, holographic "bounding sphere" that highlights the 20% limit for the rotational wallet, rather than using that limit to scale the actual assets.
-### 📋 Phase 2: The 3D "Stellar Cartography" Environment
-*Establishing the "Command Center" aesthetic.*
- * **2.1 WebGL Canvas Setup:** Initialize a Three.js scene with a void-black (#000000) background to maximize the QD-OLED contrast.
- * **2.2 Model Architecture:** Build the three distinct structures (Core, Orbital Rings, Ion Trails).
- * **2.3 Camera & Interaction:** Implement OrbitControls with physics-based damping, ensuring the user can pan, zoom, and rotate the entire table as a single, cohesive unit.
-### 📋 Phase 3: Advanced Holographics & Polish
-*The final "Phenomenal" layer.*
- * **3.1 Proximity-Based Data HUDs:** Implement a level-of-detail system where macro-stats appear when zoomed out and granular trade data triggers upon zooming into specific nodes.
- * **3.2 Particle Physics & Shaders:** Integrate the real-time "tractor beam" particle system for rebalances and attach GLSL shaders to the Core so it "pulses" in rhythm with the bot’s execution frequency.
- * **3.3 Raycasting & Focus:** Enable raycasting to allow for "Point of Interest" dives—clicking a trading node must trigger a smooth GSAP camera sweep to that location.
+Both pages utilize the exact same structural layout to keep the central 3D canvas completely unobstructed, but have different left and right panels for both pages as they will be controlling different wallets: 
+(LeftHudPanel, LeftHudPanel_R, RightHudPanel, RightHudPanel_R, StatusBar and StatusBar_R)
+ * **Left Panel (The Tactical Dials):** Houses system sliders, spacing configurations, and visual force-field thresholds. 
+ * **Right Panel (Injection Console):** Houses the manual override tools / Swap Injection, asset selection, and execution switches.
+ * **Center Stage (The Bioluminescent Pond):** The viewport is a full-screen, unobstructed 3D canvas displaying the tactical nodes in their deterministically generated hex-seed colors.
+#### 3. Data Integration & State Mapping
+The unified frontend hooks into the dynamic 60-ledger window ratio tracking streams, mapping the exact same visual states regardless of which wallet is being viewed:
+ * **Outside Watch Zone (Universal Hex Color):** Exchange rate is below the HOT zone threshold. Nodes idle in their deterministically generated base color.
+ * **Expanding (Vibrant Green Blip):** Exchange rate is actively widening; accumulating unrealized asset volume potential.
+ * **Apex (Flashing White / Cyan):** Exchange rate expansion has flattened at its local maximum. Maximum swap yield is active.
+ * **Compression (Warning Orange Flashing):** Ratio prints its first confirmed down-tick from the peak. The reverse swap window is open.
+
+## Live Telemetry & QuestDB Schema Bridge
+To eliminate all mock data and drive the 3D canvas with live production metrics, the frontend telemetry endpoints must query QuestDB using `LATEST BY` time-series collapses:
+### Data-to-UI Mapping Table
+| UI Module / Target | QuestDB Table | SQL Query | Visual Engine Mapping |
+| :--- | :--- | :--- | :--- |
+| **Bot Page (3D Ring)** | `amm_balances` | `SELECT * FROM amm_balances LATEST BY currency, capital_partition;` | Drives **True-Mass logarithmic scaling** and feeds currency codes into the **Hex-to-Color algorithm**. |
+| **Bot Page (Engine States)** | `mpt_state_snapshot` | `SELECT * FROM mpt_state_snapshot LATEST BY pair_key;` | Triggers **Expanding (Green)**, **Apex (White)**, and **Compression (Orange)** visual overrides + tracer lines. |
+| **Radar Page (Manual Swaps)** | `trading_balances` | `SELECT * FROM trading_balances LATEST BY asset;` | Isolates current manual wallet positions to render active sniper nodes. |
+| **Matrix & Pulse HUDs** | `xrp_stack_snapshots` | `SELECT * FROM xrp_stack_snapshots ORDER BY timestamp DESC LIMIT 1;` | Feeds the **80/20 Redline visualizer** and proportion models across Cold, Trading, and Bot wallets. |
+**Developer Implementation Note:** All live balance updates must use standard `LATEST BY` state collapses to ensure historical snapshot rows do not duplicate active 3D nodes.
+
+
+#### Matrix Page (The Living Organism / Asset Pile Console)
+### The visual Page of all wallet balances viewed in 3D Graphical view.
+* **Matrix Page of Dashboard:** (Asset-pile) The aggregate view. These page synthesize the combined telemetry of the Cold Wallet, Trading Bot Wallet, and Manual Trading Wallet to provide a holistic measure of the total ecosystem "The Organism"
+#### 1. Objective & Core Paradigm
+The Matrix Page (Asset Pile Console) completely reimagines static asset data grids as a kinetic, biomechanical "living organism" ecosystem that leverages local GPU rendering capabilities. Instead of isolating token pairs in rigid, unreadable raw-text rows, all whitelisted assets are treated as floating, interdependent visual nodes within a shared mesh network. This layout provides an immediate, instinctual view of the system's central nervous system, visualizing real-time capital flow, multi-hop routing, and asset depth without text clutter.
+#### 2. Visual Topography & Kinetic Event Streams
+ * **The Mesh Network:** Built utilizing React Three Fiber, individual assets drift and hover as floating graphical nodes. The visual density and physical proximity of nodes reflect their current liquidity scaling and active network relationships.
+ * **Biomechanical Tracers (The Live Tape):** Raw market transactions are translated into immediate particle emissions across the canvas. Asset-to-asset multi-hop execution fires kinetic energy pulse vectors traveling from the source node to the target node.
+ * **Dynamic Sizing & Bounding Spheres:** Node volume and scaling are driven by the Adaptive Liquidity Scaling engine. Capital partitions are bound by dynamic geometric spheres, instantly visualizing the 80/20 split between core operational capital and sidelined assets.
+#### 3. State Coloration & Ambient HUD Mechanics
+The entire page operates in an ACTIVE_IDLE state by default, shrinking text data away until explicitly engaged. System health is communicated through ambient color pulses across the node cluster:
+ * **Emerald Tracers / Pulses:** Active BUY actions or successful execution events pulse green across the corresponding node pathways.
+ * **Red Tracers / Pulses:** Active SELL actions, SKIP flags, or engine CLAMP events radiate a warning red pulse down the asset network path.
+ * **Amber Overrides:** When manual deviations or dry-run simulations are actively injected into the system, affected nodes and control modules emit a localized amber glow.
+#### 4. Interaction Architecture: Focus Zoom Isolation
+To preserve cognitive clarity and maximize visual efficiency, all deep-level technical metrics are hidden behind a strict click-to-expand data hierarchy.
+ * **The Ambient Overlay:** Hovering over an asset node gently reveals its real-time relative token velocity and tracking state.
+ * **Holographic Node Expansion:** Clicking directly on a specific asset node freezes ambient movement and expands the node into a comprehensive holographic terminal overlay. This panel brings forward critical data including exact net volume, transaction histories, and active guardrails (such as MINIMUM_POOL_DEPTH_XRP metrics).
+ * **Tactile Engine Controls:** The interface incorporates 3D kinetic dials and throttle sliders to manage simulated overrides and stress tests, converting standard flat HTML inputs into highly responsive, tactile objects.
+
+
 
 ### Pulse Page
 #### 1. Objective & The "Viewport" Layout
@@ -196,13 +171,24 @@ The Pulse page serves as the primary "glass box" command center for tracking pur
  * **Hourly Snapshot Scheduler:** A backend Java cron job captures hourly wallet balances and inserts them directly into the QuestDB xrp_stack_snapshots table.
  * **Transaction Grouping:** The /api/asset-efficiency endpoint strictly groups all trades by transaction_hash. This ensures that multi-party executions deployed by the Adaptive Liquidity Scaling engine are not double-counted, preserving the integrity of the heatmap's win-rate math.
 
+
+
 ### Comms Page
 #### 1. Objective & Core Paradigm (The Gateway Monitor)
 The Notification Control Center functions as a "Transaction Heartbeat" monitor. It visualizes the handshake between machine-driven strategy (The Server) and manual approval (MIVN/Human-in-the-loop). It strictly adheres to the Viewport philosophy: the center remains empty until action is required.
 #### 2. Visual Topography & The "Bridge" Architecture
- * **The Gateway Window (Active Center Zone):** Located dead-center, this zone surfaces in-flight Xaman signing payloads using high-contrast XRP Blue (#00A8FF) and XRP Purple (#6C47FF) breathing animations while awaiting an operator signature. When no signatures are pending, this center space remains a clean, unobstructed void.
+ * **The Gateway Window (Active Center Zone):** Located dead-center, this zone surfaces in-flight Zen/Xaman signing payloads using high-contrast XRP Blue (#00A8FF) and XRP Purple (#6C47FF) breathing animations while awaiting an operator signature. When no signatures are pending, this center space remains a clean, unobstructed void.
  * **The Telemetry Log (Perimeter HUD):** A secondary feed pushed to the outer edges of the screen that logs background system heartbeats and "set and forget" rule triggers. It uses a desaturated blue-grey palette to prevent cognitive interference.
 #### 3. Control & Observability Mechanics
  * **System Pulse Indicators:** Active rule monitors utilize a low-opacity radar-sweep animation to denote that specific backend sensors are "live" and scanning.
  * **Tactile Interaction:** Users toggle "Pause/Resume" states for specific alert rules directly via mechanical-style toggles that persist state directly to the backend. These toggles are housed within the perimeter HUD.
  * **Immediate Visual Audit:** Bifurcation of the page ensures the operator can instantly discern if the system is stalled awaiting a signature (center screen active) or if channels are clear (center screen empty).
+
+
+Other files of references
+tradingbot.md
+BotPage.md 
+RadarPage.md
+MatrixPage.md
+PulsePage.md
+CommsPage.md
