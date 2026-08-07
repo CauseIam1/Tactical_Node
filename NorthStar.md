@@ -1,5 +1,3 @@
-# Tactical_Node
-
 **![Bot Page](screen.png)**
 
 # AMM Matrix: Project North Star
