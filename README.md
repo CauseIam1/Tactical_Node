@@ -6,4 +6,4 @@
 
 **![Bot Page](Screen.png)**
 
-**![Gotify](Gotify.png)**
+
