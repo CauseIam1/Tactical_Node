@@ -4,6 +4,6 @@
 
 **![Holodeck](Holodeck.png)**
 
-**![Bot Page](Screen.png)**
+**![Bot Page](screen.png)**
 
 
