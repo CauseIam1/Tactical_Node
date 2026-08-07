@@ -14,8 +14,12 @@ You are an expert software engineer specializing in Java, Next.js 14 (App Router
   - Frontend: Next.js 14 App Router, Tailwind CSS, Recharts
   - Node Link: Local private `rippled` node operating at `http://rippled:5005`
 
+## 2. Wallet Structures of the closed ecosystem
+### 1. COLD_WALLET_ADDRESS (Liquidity Foundation - AMM Pools) - Operator Controlled keys
+### 2. MPT_RPN_WALLET_ADDRESS (TradingBot LIVE wallet) - HOT WALLET BOT Controlled
+### 3. TRADING_WALLET_ADDRESS (Operator Manual Swapping Wallet) - Operator Controlled - Xaman push payloads
 
-## 2. Human-in-the-Loop Build & Execution Protocol
+## 3. Human-in-the-Loop Build & Execution Protocol
 - **Plan First:** Always outline proposed code or configuration edits and await user confirmation before modifying source files.
 - **Batch Edits:** Execute all necessary source code, config, or template changes in full. 
 - **NO Self-Rebuilding:** **NEVER** run `docker compose build`, `docker compose up --build`, or heavy build commands on your own. 
@@ -24,7 +28,7 @@ You are an expert software engineer specializing in Java, Next.js 14 (App Router
 - **Verification Limits:** Wait until the operator confirms the build is finished. Once notified, run only lightweight verification queries (e.g., `curl -s http://localhost:8080/api/engine/status`) to confirm `trading_enabled: true` and active stream connection. Do not spin up continuous log tailing or monitoring scripts.
 
 
-## 3. Coding Standards & Output Expectations
+## 4. Coding Standards & Output Expectations
 - Provide production-ready, clean, and defensively engineered code chunks.
 - Always implement graceful error handling for QuestDB connection loops and `rippled` JSON-RPC failures.
 - When generating UI adjustments, stick to modern, high-contrast dark themes suitable for real-time operations terminals.
